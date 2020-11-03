@@ -88,9 +88,9 @@ public class PatientController {
 			patientDetails.setEmergencyContactRelation(patient.getEmergencyContactRelation());
 			patientDetails.setGender(patient.getGender());
 			patientDetails.setPhoneNumber(patient.getPhoneNumber());
-			;
 			patientDetails.setReasonForVisit(patient.getReasonForVisit());
 			patientDetails.setRegisteredDate(patient.getRegisteredDate());
+			patientDetails.setWhatsAppNumber(patient.getWhatsAppNumber());
 
 			UserDto userDto = patientService.getUserByName(principal.getName());
 			patientDetails.setUpdatedBy(userDto);

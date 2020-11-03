@@ -85,6 +85,12 @@ public class PatientDiagnosisDto {
 	@JoinColumn(name = "UPDATED_BY")
 	private UserDto updatedBy;
 
+	@Column(name = "INVESTIGATION")
+	private String investigation;
+
+	@Column(name = "FOLLOW_UPDATE")
+	private String followUpdate;
+
 	public int getDiagnosisId() {
 		return diagnosisId;
 	}
@@ -245,6 +251,22 @@ public class PatientDiagnosisDto {
 		this.updatedBy = updatedBy;
 	}
 
+	public String getInvestigation() {
+		return investigation;
+	}
+
+	public void setInvestigation(String investigation) {
+		this.investigation = investigation;
+	}
+
+	public String getFollowUpdate() {
+		return followUpdate;
+	}
+
+	public void setFollowUpdate(String followUpdate) {
+		this.followUpdate = followUpdate;
+	}
+
 	@Override
 	public String toString() {
 		return "PatientDiagnosisDto [diagnosisId=" + diagnosisId + ", activeFlag=" + activeFlag + ", patient=" + patient
@@ -253,7 +275,8 @@ public class PatientDiagnosisDto {
 				+ ", temperatureUnits=" + temperatureUnits + ", thyroid=" + thyroid + ", thyroidReports="
 				+ thyroidReports + ", diagnosis=" + diagnosis + ", doctorName=" + doctorName + ", appointment="
 				+ appointment + ", date=" + date + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
-				+ ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + "]";
+				+ ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + ", investigation=" + investigation
+				+ ", followUpdate=" + followUpdate + "]";
 	}
 
 }

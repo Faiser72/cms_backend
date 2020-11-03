@@ -76,6 +76,17 @@ public class PatientDto {
 	@JoinColumn(name = "UPDATED_BY")
 	private UserDto updatedBy;
 
+	@Column(name = "WHATSAPP_NUMBER")
+	private String whatsAppNumber;
+
+	public String getWhatsAppNumber() {
+		return whatsAppNumber;
+	}
+
+	public void setWhatsAppNumber(String whatsAppNumber) {
+		this.whatsAppNumber = whatsAppNumber;
+	}
+
 	public int getPatientId() {
 		return patientId;
 	}
@@ -236,7 +247,8 @@ public class PatientDto {
 				+ reasonForVisit + ", registeredDate=" + registeredDate + ", emergencyContactName="
 				+ emergencyContactName + ", emergencyContactNumber=" + emergencyContactNumber
 				+ ", emergencyContactRelation=" + emergencyContactRelation + ", createdDate=" + createdDate
-				+ ", updatedDate=" + updatedDate + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + "]";
+				+ ", updatedDate=" + updatedDate + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy
+				+ ", whatsAppNumber=" + whatsAppNumber + "]";
 	}
 
 }

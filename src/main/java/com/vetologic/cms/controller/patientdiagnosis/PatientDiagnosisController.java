@@ -116,7 +116,9 @@ public class PatientDiagnosisController {
 			patientDiagnosisDetails.setThyroid(patientDiagnosis.getThyroid());
 			// patientDiagnosisDetails.setThyroidReports(patientDiagnosis.getThyroidReports());
 			patientDiagnosisDetails.setDate(patientDiagnosis.getDate());
-
+			patientDiagnosisDetails.setInvestigation(patientDiagnosis.getInvestigation());
+			patientDiagnosisDetails.setFollowUpdate(patientDiagnosis.getFollowUpdate());
+			
 			if (patientDiagnosis.getDiagnosis() != null) {
 				patientDiagnosisDetails.setDiagnosis(patientDiagnosis.getDiagnosis());
 			}
