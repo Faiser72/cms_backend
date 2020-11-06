@@ -207,6 +207,11 @@ public class DoctorController {
 			doctorDetails.setDoctorRole(doctor.getDoctorRole());
 			doctorDetails.setPanNo(doctor.getPanNo());
 			doctorDetails.setRegisterNo(doctor.getRegisterNo());
+			doctorDetails.setInitialRegCost(doctor.getInitialRegCost());
+			doctorDetails.setAmtToClinic(doctor.getAmtToClinic());
+			doctorDetails.setClinicCost(doctor.getClinicCost());
+			doctorDetails.setDoctorCost(doctor.getDoctorCost());
+			doctorDetails.setFlatOrShareLabel(doctor.getFlatOrShareLabel());
 
 			UserDto userDto = doctorService.getUserByName(principal.getName());
 			doctorDetails.setUpdatedBy(userDto);

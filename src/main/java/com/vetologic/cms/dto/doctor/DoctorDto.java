@@ -105,6 +105,21 @@ public class DoctorDto {
 	@Column(name = "REGISTER_NO")
 	private String registerNo;
 
+	@Column(name = "AMT_TO_CLINIC")
+	private String amtToClinic;
+
+	@Column(name = "CLINIC_COST")
+	private String clinicCost;
+
+	@Column(name = "INITIAL_REG_COST")
+	private String initialRegCost;
+
+	@Column(name = "DOCTOR_COST")
+	private String doctorCost;
+
+	@Column(name = "FLAT_OR_SHARE_LABEL")
+	private String flatOrShareLabel;
+
 	public int getDoctorId() {
 		return doctorId;
 	}
@@ -329,6 +344,46 @@ public class DoctorDto {
 		this.registerNo = registerNo;
 	}
 
+	public String getAmtToClinic() {
+		return amtToClinic;
+	}
+
+	public void setAmtToClinic(String amtToClinic) {
+		this.amtToClinic = amtToClinic;
+	}
+
+	public String getClinicCost() {
+		return clinicCost;
+	}
+
+	public void setClinicCost(String clinicCost) {
+		this.clinicCost = clinicCost;
+	}
+
+	public String getInitialRegCost() {
+		return initialRegCost;
+	}
+
+	public void setInitialRegCost(String initialRegCost) {
+		this.initialRegCost = initialRegCost;
+	}
+
+	public String getDoctorCost() {
+		return doctorCost;
+	}
+
+	public void setDoctorCost(String doctorCost) {
+		this.doctorCost = doctorCost;
+	}
+
+	public String getFlatOrShareLabel() {
+		return flatOrShareLabel;
+	}
+
+	public void setFlatOrShareLabel(String flatOrShareLabel) {
+		this.flatOrShareLabel = flatOrShareLabel;
+	}
+
 	@Override
 	public String toString() {
 		return "DoctorDto [doctorId=" + doctorId + ", activeFlag=" + activeFlag + ", doctorName=" + doctorName
@@ -339,7 +394,9 @@ public class DoctorDto {
 				+ ", eveningVisitTo=" + eveningVisitTo + ", address=" + address + ", phoneNumber=" + phoneNumber
 				+ ", emailId=" + emailId + ", panNo=" + panNo + ", aadharNo=" + aadharNo + ", user=" + user
 				+ ", doctorRole=" + doctorRole + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
-				+ ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + ", registerNo=" + registerNo + "]";
+				+ ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + ", registerNo=" + registerNo
+				+ ", amtToClinic=" + amtToClinic + ", clinicCost=" + clinicCost + ", initialRegCost=" + initialRegCost
+				+ ", doctorCost=" + doctorCost + ", flatOrShareLabel=" + flatOrShareLabel + "]";
 	}
 
 }
