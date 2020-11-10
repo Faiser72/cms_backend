@@ -63,6 +63,31 @@ public class FileUploader {
 		}
 		return false;
 	}
+	
+	public boolean uploadAgreementFiles(MultipartFile file, String subFolderName, int id) {
+		try {
+			if ((file != null) && (!file.isEmpty())) {
+				byte[] bytes = file.getBytes();
+
+				Path rootPath = FileSystems.getDefault().getPath("").toAbsolutePath();
+				File dir = new File(rootPath + File.separator + "Uploads" + File.separator + "doctors" + File.separator
+						+ File.separator + subFolderName);
+
+				if (!dir.exists())
+					dir.mkdirs();
+
+				File serverFile = new File(
+						dir.getAbsolutePath() + File.separator + id + "_" + file.getOriginalFilename());
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	public boolean uploadTestReportFiles(MultipartFile file, String subFolderName, int id) {
 		try {

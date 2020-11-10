@@ -2,6 +2,7 @@ package com.vetologic.cms.controller.doctor;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.security.Principal;
@@ -408,6 +409,76 @@ public class DoctorController {
 			cmsResponse.setSuccess(false);
 			cmsResponse.setMessage("This Doctor Not Exist");
 			log.info("This Doctor Id: " + doctorId + " Not Exist");
+		}
+		return cmsResponse;
+	}
+
+	// Agreement file *
+	@PostMapping(path = "/saveOrUpdateAgreement", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public CmsResponse saveOrUpdateAgreement(CmsResponse cmsResponse, int doctorId, MultipartFile agreementFile,
+			FileUploader fileUploader) {
+		try {
+			DoctorDto doctorDetails = (DoctorDto) doctorService.getById("DoctorDto", doctorId);
+			if (agreementFile != null) {
+				if (!agreementFile.getOriginalFilename().equalsIgnoreCase(doctorDetails.getAgreement())) {
+					if (fileUploader.uploadAgreementFiles(agreementFile, "Agreement", doctorId)) {
+						String agreementFileName = doctorId + "_" + agreementFile.getOriginalFilename();
+						doctorDetails.setAgreement(agreementFileName);
+						System.err.println(doctorDetails.toString());
+						doctorService.update(doctorDetails);
+						log.info("Agreeement File: " + agreementFileName + " is Uploaded Successfully.");
+						cmsResponse.setSuccess(true);
+					} else {
+						log.info("Fails to Upload Agreement File");
+						cmsResponse.setSuccess(false);
+					}
+				} else {
+					cmsResponse.setSuccess(true);
+					cmsResponse.setMessage("Agreement Already Uploaded");
+					log.info("This Agreement file is Already Uploaded");
+				}
+			} else {
+				log.info("Agreement File is Empty.");
+				cmsResponse.setSuccess(false);
+			}
+		} catch (Exception e) {
+			cmsResponse.setSuccess(false);
+			e.printStackTrace();
+		}
+		return cmsResponse;
+	}
+
+	@RequestMapping(value = "/getAgreement")
+	public CmsResponse getAgreement(@RequestParam("doctorId") int doctorId, CmsResponse cmsResponse)
+			throws IOException {
+		try {
+			DoctorDto doctorDetails = (DoctorDto) doctorService.getById("DoctorDto", doctorId);
+			if (doctorDetails != null) {
+				String subFolderName = "Agreement";
+				Path rootPath = FileSystems.getDefault().getPath("").toAbsolutePath();
+				String filePath = rootPath + File.separator + "Uploads" + File.separator + "doctors" + File.separator
+						+ File.separator + subFolderName + File.separator + doctorDetails.getAgreement();
+
+				File file = new File(filePath);
+
+				// Creating a byte array using the length of the file
+				// file.length returns long which is cast to int.
+				byte[] byteArray = new byte[(int) file.length()];
+				FileInputStream fis = null;
+
+				fis = new FileInputStream(file);
+				fis.read(byteArray);
+				fis.close();
+
+				cmsResponse.setObject(doctorDetails);
+				cmsResponse.setByteArray(byteArray);
+				cmsResponse.setSuccess(true);
+			} else {
+				cmsResponse.setSuccess(false);
+			}
+		} catch (Exception e) {
+			cmsResponse.setSuccess(false);
+			log.error(e.getMessage());
 		}
 		return cmsResponse;
 	}

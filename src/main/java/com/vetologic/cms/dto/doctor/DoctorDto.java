@@ -120,6 +120,9 @@ public class DoctorDto {
 	@Column(name = "FLAT_OR_SHARE_LABEL")
 	private String flatOrShareLabel;
 
+	@Column(name = "AGREEMENT")
+	private String agreement;
+
 	public int getDoctorId() {
 		return doctorId;
 	}
@@ -384,6 +387,14 @@ public class DoctorDto {
 		this.flatOrShareLabel = flatOrShareLabel;
 	}
 
+	public String getAgreement() {
+		return agreement;
+	}
+
+	public void setAgreement(String agreement) {
+		this.agreement = agreement;
+	}
+
 	@Override
 	public String toString() {
 		return "DoctorDto [doctorId=" + doctorId + ", activeFlag=" + activeFlag + ", doctorName=" + doctorName
@@ -396,7 +407,8 @@ public class DoctorDto {
 				+ ", doctorRole=" + doctorRole + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
 				+ ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + ", registerNo=" + registerNo
 				+ ", amtToClinic=" + amtToClinic + ", clinicCost=" + clinicCost + ", initialRegCost=" + initialRegCost
-				+ ", doctorCost=" + doctorCost + ", flatOrShareLabel=" + flatOrShareLabel + "]";
+				+ ", doctorCost=" + doctorCost + ", flatOrShareLabel=" + flatOrShareLabel + ", agreement=" + agreement
+				+ "]";
 	}
 
 }
