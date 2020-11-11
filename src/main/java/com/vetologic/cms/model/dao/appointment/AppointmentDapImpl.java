@@ -241,4 +241,19 @@ public class AppointmentDapImpl implements AppointmentDao {
 		}
 		return object;
 	}
+	
+	public List<?> getByCurrentDate(String beanClassName, String currentDate) {
+		Session session = getSession();
+		List<?> listOfObjects = null;
+		try {
+			Query<?> query = session.createQuery(
+					"FROM " + beanClassName + " WHERE activeFlag = ?0 AND appointmentDate = ?1 ORDER BY appointmentTime");
+			query.setParameter(0, 1);
+			query.setParameter(1, currentDate);
+			listOfObjects = query.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listOfObjects;
+	}
 }

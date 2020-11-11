@@ -68,6 +68,12 @@ public class AppointmentDto {
 	@Column(name = "DELETION_FLAG")
 	private int deletionFlag;
 
+	@Column(name = "CONFORMATION_FLAG")
+	private int conformationFlag;
+
+	@Column(name = "COMPLETED_FLAG")
+	private int completedFlag;
+
 	public int getAppointmentId() {
 		return appointmentId;
 	}
@@ -188,6 +194,22 @@ public class AppointmentDto {
 		this.deletionFlag = deletionFlag;
 	}
 
+	public int getConformationFlag() {
+		return conformationFlag;
+	}
+
+	public void setConformationFlag(int conformationFlag) {
+		this.conformationFlag = conformationFlag;
+	}
+
+	public int getCompletedFlag() {
+		return completedFlag;
+	}
+
+	public void setCompletedFlag(int completedFlag) {
+		this.completedFlag = completedFlag;
+	}
+
 	@Override
 	public String toString() {
 		return "AppointmentDto [appointmentId=" + appointmentId + ", activeFlag=" + activeFlag + ", testedFlag="
@@ -195,7 +217,8 @@ public class AppointmentDto {
 				+ patientName + ", phoneNumber=" + phoneNumber + ", appointmentDate=" + appointmentDate
 				+ ", appointmentTime=" + appointmentTime + ", doctorName=" + doctorName + ", createdDate=" + createdDate
 				+ ", updatedDate=" + updatedDate + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy
-				+ ", deletionFlag=" + deletionFlag + "]";
+				+ ", deletionFlag=" + deletionFlag + ", conformationFlag=" + conformationFlag + ", completedFlag="
+				+ completedFlag + "]";
 	}
 
 }

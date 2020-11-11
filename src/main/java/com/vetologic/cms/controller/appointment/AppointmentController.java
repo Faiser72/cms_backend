@@ -39,6 +39,8 @@ public class AppointmentController {
 		appointment.setActiveFlag(1);
 		appointment.setTestedFlag(0);
 		appointment.setDeletionFlag(0);
+		appointment.setCompletedFlag(0);
+		appointment.setCompletedFlag(0);
 		UserDto userDto = appointmentService.getUserByName(principal.getName());
 		appointment.setCreatedBy(userDto);
 		appointment.setCreatedDate(AppUtil.currentDateWithTime());
@@ -311,6 +313,121 @@ public class AppointmentController {
 			cmsResponse.setSuccess(false);
 			cmsResponse.setMessage("Appointment On: " + currentDate + " Not Exist");
 			log.info("This Appointment on: " + currentDate + " Not Exist");
+		}
+		return cmsResponse;
+	}
+
+	@SuppressWarnings("unchecked")
+	@GetMapping(path = "/getAllAppointmentDetailsByCurrentDate/{currentDate}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public CmsResponse getAllAppointmentDetailsByDate(@PathVariable String currentDate, CmsResponse cmsResponse) {
+//		String currentDate=AppUtil.currentDateWithoutTime();
+
+		List<AppointmentDto> appointment = (List<AppointmentDto>) appointmentService.getByCurrentDate("AppointmentDto",
+				currentDate);
+		if (appointment.size() > 0) {
+			cmsResponse.setListObject(appointment);
+			System.err.println(appointment);
+			cmsResponse.setSuccess(true);
+		} else {
+			cmsResponse.setSuccess(false);
+			cmsResponse.setMessage("Appointment on: " + currentDate + " Not Exist");
+			log.info("This Appointment on " + currentDate + " Not Exist");
+		}
+		return cmsResponse;
+	}
+
+	@PutMapping(path = "/conformation", produces = MediaType.APPLICATION_JSON_VALUE)
+	public CmsResponse conformation(@RequestParam("appointmentId") int appointmentId, CmsResponse cmsResponse) {
+		AppointmentDto appointment = (AppointmentDto) appointmentService.getById("AppointmentDto", appointmentId);
+		if (appointment != null) {
+			appointment.setUpdatedDate(AppUtil.currentDateWithTime());
+			appointment.setConformationFlag(1);
+			if (appointmentService.update(appointment)) {
+				cmsResponse.setSuccess(true);
+				cmsResponse.setMessage("Conformation Updated Sucessfully");
+				log.info("This appointmentId Id: " + appointmentId + " is conformed for checkup");
+			} else {
+				cmsResponse.setSuccess(false);
+				cmsResponse.setMessage("Conformation Updated Failed");
+				log.info("Conformation Updated Failed");
+			}
+
+		} else {
+			cmsResponse.setSuccess(false);
+			cmsResponse.setMessage("This Appointment Not Exist");
+			log.info("This appointment Id: " + appointmentId + " Not Exist");
+		}
+		return cmsResponse;
+	}
+	
+	@PutMapping(path = "/cancelconformation", produces = MediaType.APPLICATION_JSON_VALUE)
+	public CmsResponse cancelconformation(@RequestParam("appointmentId") int appointmentId, CmsResponse cmsResponse) {
+		AppointmentDto appointment = (AppointmentDto) appointmentService.getById("AppointmentDto", appointmentId);
+		if (appointment != null) {
+			appointment.setUpdatedDate(AppUtil.currentDateWithTime());
+			appointment.setConformationFlag(0);
+			if (appointmentService.update(appointment)) {
+				cmsResponse.setSuccess(true);
+				cmsResponse.setMessage("canceled Sucessfully");
+				log.info("This appointmentId Id: " + appointmentId + " is cancled for checkup");
+			} else {
+				cmsResponse.setSuccess(false);
+				cmsResponse.setMessage("cancelation Failed");
+				log.info("cancelation Failed");
+			}
+
+		} else {
+			cmsResponse.setSuccess(false);
+			cmsResponse.setMessage("This Appointment Not Exist");
+			log.info("This appointment Id: " + appointmentId + " Not Exist");
+		}
+		return cmsResponse;
+	}
+	
+	@PutMapping(path = "/unfinished", produces = MediaType.APPLICATION_JSON_VALUE)
+	public CmsResponse unfinished(@RequestParam("appointmentId") int appointmentId, CmsResponse cmsResponse) {
+		AppointmentDto appointment = (AppointmentDto) appointmentService.getById("AppointmentDto", appointmentId);
+		if (appointment != null) {
+			appointment.setUpdatedDate(AppUtil.currentDateWithTime());
+			appointment.setConformationFlag(0);
+			if (appointmentService.update(appointment)) {
+				cmsResponse.setSuccess(true);
+				cmsResponse.setMessage("unfinished");
+				log.info("This appointmentId Id: " + appointmentId + " is unfinished for checkup");
+			} else {
+				cmsResponse.setSuccess(false);
+				cmsResponse.setMessage("unfinished");
+				log.info("cancelation Failed");
+			}
+
+		} else {
+			cmsResponse.setSuccess(false);
+			cmsResponse.setMessage("This Appointment Not Exist");
+			log.info("This appointment Id: " + appointmentId + " Not Exist");
+		}
+		return cmsResponse;
+	}
+
+	@PutMapping(path = "/completed", produces = MediaType.APPLICATION_JSON_VALUE)
+	public CmsResponse completed(@RequestParam("appointmentId") int appointmentId, CmsResponse cmsResponse) {
+		AppointmentDto appointment = (AppointmentDto) appointmentService.getById("AppointmentDto", appointmentId);
+		if (appointment != null) {
+			appointment.setUpdatedDate(AppUtil.currentDateWithTime());
+			appointment.setCompletedFlag(1);
+			if (appointmentService.update(appointment)) {
+				cmsResponse.setSuccess(true);
+				cmsResponse.setMessage("Appointment Completed Sucessfully");
+				log.info("This appointmentId Id: " + appointmentId + " has Completed Sucessfully");
+			} else {
+				cmsResponse.setSuccess(false);
+				cmsResponse.setMessage("complete  status Updated Failed");
+				log.info("complete  status Updated Failed");
+			}
+
+		} else {
+			cmsResponse.setSuccess(false);
+			cmsResponse.setMessage("This Appointment Not Exist");
+			log.info("This appointment Id: " + appointmentId + " Not Exist");
 		}
 		return cmsResponse;
 	}

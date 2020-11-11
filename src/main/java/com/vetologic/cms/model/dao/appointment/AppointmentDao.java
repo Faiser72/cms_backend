@@ -33,5 +33,7 @@ public interface AppointmentDao {
 	List<?> getByDate(String beanClassName, String currentDate);
 
 	Object getLastAppointmentDetail();
+	
+	List<?> getByCurrentDate(String beanClassName, String currentDate);
 
 }

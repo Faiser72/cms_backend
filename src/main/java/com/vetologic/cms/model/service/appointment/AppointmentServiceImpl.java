@@ -86,4 +86,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 	public Object getLastAppointmentDetail() {
 		return appointmentDao.getLastAppointmentDetail();
 	}
+	
+	@Override
+	public List<?> getByCurrentDate(String beanClassName, String currentDate) {
+		return appointmentDao.getByCurrentDate(beanClassName, currentDate);
+	}
 }
