@@ -46,12 +46,12 @@ public class ReferenceController {
 			reference.setReferenceId(id);
 			cmsResponse.setObject(reference);
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved Reference Id is: " + id);
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved Reference Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
-			log.info("Saved UnSucessfully");
+			cmsResponse.setMessage("Saved UnSuccessfully");
+			log.info("Saved UnSuccessfully");
 		}
 		return cmsResponse;
 	}
@@ -162,10 +162,10 @@ public class ReferenceController {
 				reference.setReferenceId(id);
 				cmsResponse.setObject(reference);
 				cmsResponse.setSuccess(true);
-				log.info("Saved Sucessfully & Saved reference Id is: " + id);
+				log.info("Saved Successfully & Saved reference Id is: " + id);
 			} else {
 				cmsResponse.setSuccess(false);
-				log.info("Saved UnSucessfully");
+				log.info("Saved UnSuccessfully");
 			}
 		}
 		return cmsResponse;
@@ -193,8 +193,8 @@ public class ReferenceController {
 			if (referenceService.update(referenceDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(referenceDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This reference Id: " + referenceDetails.getReferenceId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This reference Id: " + referenceDetails.getReferenceId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");

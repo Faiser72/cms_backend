@@ -46,12 +46,12 @@ public class PrescriptionController {
 			prescription.setPrescriptionId(id);
 			cmsResponse.setObject(prescription);
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved Prescription Id is: " + id);
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved Prescription Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
-			log.info("Saved UnSucessfully");
+			cmsResponse.setMessage("Failed to Save");
+			log.info("Saved UnSuccessfully");
 		}
 		return cmsResponse;
 	}
@@ -116,7 +116,7 @@ public class PrescriptionController {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(prescriptionDetails);
 				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This Prescription Id: " + prescriptionDetails.getPrescriptionId() + " Updated Sucessfully");
+				log.info("This Prescription Id: " + prescriptionDetails.getPrescriptionId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -141,7 +141,7 @@ public class PrescriptionController {
 			if (prescriptionService.update(prescriptionDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setMessage("Deleted Sucessfully");
-				log.info("This Prescription Id: " + prescriptionId + " Deleted Sucessfully");
+				log.info("This Prescription Id: " + prescriptionId + " Deleted Successfully");
 			} else {
 //				patientDetails.UndoAllCandIntervAndJobsByCompanyId(patientDetails.getPatientId());
 				cmsResponse.setSuccess(false);
@@ -211,10 +211,10 @@ public class PrescriptionController {
 				prescription.setPrescriptionId(id);
 				cmsResponse.setObject(prescription);
 				cmsResponse.setSuccess(true);
-				log.info("Saved Sucessfully & Saved Diagnosis Id is: " + id);
+				log.info("Saved Successfully & Saved Diagnosis Id is: " + id);
 			} else {
 				cmsResponse.setSuccess(false);
-				log.info("Saved UnSucessfully");
+				log.info("Saved UnSuccessfully");
 			}
 		}
 		return cmsResponse;

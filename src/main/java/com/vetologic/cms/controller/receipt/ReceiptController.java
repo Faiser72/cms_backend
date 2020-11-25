@@ -52,8 +52,8 @@ public class ReceiptController {
 			if (receiptService.update(receiptDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(receiptDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This Receipt Id: " + receiptDetails.getBillId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This Receipt Id: " + receiptDetails.getBillId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -70,12 +70,12 @@ public class ReceiptController {
 				receipt.setBillId(id);
 				cmsResponse.setObject(receipt);
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Saved Sucessfully");
-				log.info("Saved Sucessfully & Saved Receipt Id is: " + id);
+				cmsResponse.setMessage("Saved Successfully");
+				log.info("Saved Successfully & Saved Receipt Id is: " + id);
 			} else {
 				cmsResponse.setSuccess(false);
-				cmsResponse.setMessage("Saved UnSucessfully");
-				log.info("Saved UnSucessfully");
+				cmsResponse.setMessage("Saved UnSuccessfully");
+				log.info("Saved UnSuccessfully");
 			}
 		}
 
@@ -115,8 +115,8 @@ public class ReceiptController {
 			if (receiptService.update(receiptDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(receiptDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This Receipt Id: " + receiptDetails.getBillId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This Receipt Id: " + receiptDetails.getBillId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -139,7 +139,7 @@ public class ReceiptController {
 			if (receiptService.update(receiptDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setMessage("Deleted Sucessfully");
-				log.info("This Receipt Id: " + billId + " Deleted Sucessfully");
+				log.info("This Receipt Id: " + billId + " Deleted Successfully");
 			} else {
 //				patientDetails.UndoAllCandIntervAndJobsByCompanyId(patientDetails.getPatientId());
 				cmsResponse.setSuccess(false);

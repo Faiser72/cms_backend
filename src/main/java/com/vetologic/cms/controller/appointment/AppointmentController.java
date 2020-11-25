@@ -344,8 +344,8 @@ public class AppointmentController {
 			appointment.setConformationFlag(1);
 			if (appointmentService.update(appointment)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Conformation Updated Sucessfully");
-				log.info("This appointmentId Id: " + appointmentId + " is conformed for checkup");
+				cmsResponse.setMessage("Confirmation Updated Successfully");
+				log.info("This appointmentId Id: " + appointmentId + " is confirmed for checkup");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Conformation Updated Failed");
@@ -368,7 +368,7 @@ public class AppointmentController {
 			appointment.setConformationFlag(0);
 			if (appointmentService.update(appointment)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("canceled Sucessfully");
+				cmsResponse.setMessage("canceled Successfully");
 				log.info("This appointmentId Id: " + appointmentId + " is cancled for checkup");
 			} else {
 				cmsResponse.setSuccess(false);
@@ -416,8 +416,8 @@ public class AppointmentController {
 			appointment.setCompletedFlag(1);
 			if (appointmentService.update(appointment)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Appointment Completed Sucessfully");
-				log.info("This appointmentId Id: " + appointmentId + " has Completed Sucessfully");
+				cmsResponse.setMessage("Appointment Completed Successfully");
+				log.info("This appointmentId Id: " + appointmentId + " has Completed Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("complete  status Updated Failed");

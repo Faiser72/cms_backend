@@ -46,11 +46,11 @@ public class PatientController {
 			patient.setPatientId(id);
 			cmsResponse.setObject(patient);
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved Patient Id is: " + id);
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved Patient Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
+			cmsResponse.setMessage("Failed To save");
 			log.info("Saved UnSucessfully");
 		}
 		return cmsResponse;
@@ -99,8 +99,8 @@ public class PatientController {
 			if (patientService.update(patientDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(patientDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This Patient Id: " + patientDetails.getPatientId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This Patient Id: " + patientDetails.getPatientId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -149,8 +149,8 @@ public class PatientController {
 				patientDetails.setActiveFlag(0);
 				if (patientService.update(patientDetails)) {
 					cmsResponse.setSuccess(true);
-					cmsResponse.setMessage("Deleted Sucessfully");
-					log.info("This Patient Id: " + patientId + " Deleted Sucessfully");
+					cmsResponse.setMessage("Deleted Successfully");
+					log.info("This Patient Id: " + patientId + " Deleted Successfully");
 				} else {
 					patientService.UndoAllAppointmentsByPatientId(patientDetails.getPatientId());
 					cmsResponse.setSuccess(false);

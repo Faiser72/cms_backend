@@ -46,12 +46,12 @@ public class LatTestController {
 			;
 			cmsResponse.setObject(labTest);
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved labTest Id is: " + id);
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved labTest Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
-			log.info("Saved UnSucessfully");
+			cmsResponse.setMessage("Failed To Save");
+			log.info("Saved UnSuccessfully");
 		}
 		return cmsResponse;
 	}
@@ -96,10 +96,10 @@ public class LatTestController {
 				labtest.setLabTestId(id);
 				cmsResponse.setObject(labtest);
 				cmsResponse.setSuccess(true);
-				log.info("Saved Sucessfully & Saved Labtest Id is: " + id);
+				log.info("Saved Successfully & Saved Labtest Id is: " + id);
 			} else {
 				cmsResponse.setSuccess(false);
-				log.info("Saved UnSucessfully");
+				log.info("Saved UnSuccessfully");
 			}
 		}
 		return cmsResponse;
@@ -154,8 +154,8 @@ public class LatTestController {
 			if (labTestService.update(labtestDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(labtestDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This Prescription Id: " + labtestDetails.getLabTestId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This Prescription Id: " + labtestDetails.getLabTestId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");

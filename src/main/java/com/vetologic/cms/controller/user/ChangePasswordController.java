@@ -55,7 +55,7 @@ public class ChangePasswordController {
 					} else {
 						cmsResponse.setSuccess(false);
 						log.info("Fails to Change Password");
-						cmsResponse.setMessage("Fails to Change Password");
+						cmsResponse.setMessage("Failed to Change Password");
 					}
 				} else {
 					cmsResponse.setSuccess(false);

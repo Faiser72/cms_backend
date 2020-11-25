@@ -90,8 +90,8 @@ public class FrontDeskController {
 				} else {
 					if (userService.deleteUser(user)) {
 						cmsResponse.setSuccess(false);
-						cmsResponse.setMessage("Saved UnSucessfully!");
-						log.info("Saved UnSucessfully for User Id is: " + userId
+						cmsResponse.setMessage("Saved UnSuccessfully!");
+						log.info("Saved UnSuccessfully for User Id is: " + userId
 								+ " Due to failure to save doctor details.");
 					}
 				}
@@ -99,27 +99,27 @@ public class FrontDeskController {
 
 				if (frontdeskService.deleteFrontDesk(frontdesk) && userService.deleteUser(user)) {
 					cmsResponse.setSuccess(false);
-					cmsResponse.setMessage("Saved UnSucessfully! Due to failure to send mail.");
-					log.info("Saved UnSucessfully for User Id is: " + userId + " Due to failure to send mail.");
-					log.info("Saved UnSucessfully for FrontDesk Id is: " + frontdeskId
+					cmsResponse.setMessage("Saved UnSuccessfully! Due to failure to send mail.");
+					log.info("Saved UnSuccessfully for User Id is: " + userId + " Due to failure to send mail.");
+					log.info("Saved UnSuccessfully for FrontDesk Id is: " + frontdeskId
 							+ " Due to failure to send mail.");
 				} else {
 					cmsResponse.setSuccess(true);
-					cmsResponse.setMessage("Saved Sucessfully! But Fails to send mail.");
-					log.info("Saved Sucessfully & Saved User Id is: " + userId + " But Fails to send mail.");
-					log.info("Saved Sucessfully & Saved FrontDesk Id is: " + userId + " But Fails to send mail.");
+					cmsResponse.setMessage("Saved Successfully! But Fails to send mail.");
+					log.info("Saved Successfully & Saved User Id is: " + userId + " But Fails to send mail.");
+					log.info("Saved Successfully & Saved FrontDesk Id is: " + userId + " But Fails to send mail.");
 				}
 				log.error(e.getMessage());
 				return cmsResponse;
 			}
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved User Id is: " + userId + " Sent Mail also Sucessfully.");
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved User Id is: " + userId + " Sent Mail also Successfully.");
 
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
-			log.info("Saved UnSucessfully.");
+			cmsResponse.setMessage("Saved UnSuccessfully");
+			log.info("Saved UnSuccessfully.");
 		}
 
 		return cmsResponse;
@@ -168,8 +168,8 @@ public class FrontDeskController {
 
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(frontdeskDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This FrontDesk Id: " + frontdeskDetails.getFrontdeskId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This FrontDesk Id: " + frontdeskDetails.getFrontdeskId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -195,8 +195,8 @@ public class FrontDeskController {
 			frontdeskDetails.setActiveFlag(0);
 			if (frontdeskService.update(frontdeskDetails)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Deleted Sucessfully");
-				log.info("This FrontDesk Id: " + frontdeskId + " Deleted Sucessfully");
+				cmsResponse.setMessage("Deleted Successfully");
+				log.info("This FrontDesk Id: " + frontdeskId + " Deleted Successfully");
 			} else {
 //				doctorDetails.UndoAllCandIntervAndJobsByCompanyId(doctorDetails.getDoctorId());
 				cmsResponse.setSuccess(false);
@@ -253,8 +253,8 @@ public class FrontDeskController {
 			frontdeskDetails.setActiveFlag(1);
 			if (frontdeskService.update(frontdeskDetails)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Undo Sucessfully");
-				log.info("This FrontDesk Id: " + frontdeskId + " Undo Sucessfully");
+				cmsResponse.setMessage("Undo Successfully");
+				log.info("This FrontDesk Id: " + frontdeskId + " Undo Successfully");
 			} else {
 //				doctorDetails.UndoAllCandIntervAndJobsByCompanyId(doctorDetails.getDoctorId());
 				cmsResponse.setSuccess(false);

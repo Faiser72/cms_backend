@@ -42,11 +42,11 @@ public class DoctorRoleMasterController {
 		int id = doctorRoleMasterService.save(doctorRole);
 		if (id != 0) {
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
+			cmsResponse.setMessage("Saved Successfully");
 			log.info("Saved Sucessfully & Saved JobTitle Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
+			cmsResponse.setMessage("Saved UnSuccessfully");
 			log.info("Saved UnSucessfully");
 		}
 		return cmsResponse;

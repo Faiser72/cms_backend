@@ -64,19 +64,19 @@ public class UserController {
 				// user.setUserId(id);
 				if (userService.deleteUser(user)) {
 					cmsResponse.setSuccess(false);
-					cmsResponse.setMessage("Saved UnSucessfully! Due to failure to send mail.");
-					log.info("Saved UnSucessfully for User Id is: " + id + " Due to failure to send mail.");
+					cmsResponse.setMessage("Saved UnSuccessfully! Due to failure to send mail.");
+					log.info("Saved UnSuccessfully for User Id is: " + id + " Due to failure to send mail.");
 				} else {
 					cmsResponse.setSuccess(true);
-					cmsResponse.setMessage("Saved Sucessfully! But Fails to send mail.");
-					log.info("Saved Sucessfully & Saved User Id is: " + id + " But Fails to send mail.");
+					cmsResponse.setMessage("Saved Successfully! But Fails to send mail.");
+					log.info("Saved Successfully & Saved User Id is: " + id + " But Fails to send mail.");
 				}
 				log.error(e.getMessage());
 				return cmsResponse;
 			}
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved User Id is: " + id + " Sent Mail also Sucessfully.");
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved User Id is: " + id + " Sent Mail also Successfully.");
 		} else {
 			cmsResponse.setSuccess(false);
 			cmsResponse.setMessage("Saved UnSucessfully");
@@ -125,12 +125,12 @@ public class UserController {
 			userDetails.setUserType(user.getUserType());
 			if (userService.update(userDetails)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This User Id: " + userDetails.getUserId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This User Id: " + userDetails.getUserId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
-				cmsResponse.setMessage("Fails to Update");
-				log.info("Fails to Update");
+				cmsResponse.setMessage("Failed to Update");
+				log.info("Failed to Update");
 			}
 		} else {
 			cmsResponse.setSuccess(false);
@@ -148,8 +148,8 @@ public class UserController {
 			userDetails.setActiveFlag(0);
 			if (userService.update(userDetails)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Deleted Sucessfully");
-				log.info("This User Id: " + userId + "Deleted Sucessfully");
+				cmsResponse.setMessage("Deleted Successfully");
+				log.info("This User Id: " + userId + "Deleted Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Deletion Failed");

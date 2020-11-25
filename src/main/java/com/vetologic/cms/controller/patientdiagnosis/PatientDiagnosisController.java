@@ -52,12 +52,12 @@ public class PatientDiagnosisController {
 			patientDiagnosis.setDiagnosisId(id);
 			cmsResponse.setObject(patientDiagnosis);
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
+			cmsResponse.setMessage("Saved Successful ");
 			log.info("Saved Sucessfully & Saved Diagnosis Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
-			log.info("Saved UnSucessfully");
+			cmsResponse.setMessage("Failed to Save");
+			log.info("Saved UnSuccessfully");
 		}
 		return cmsResponse;
 	}
@@ -118,7 +118,7 @@ public class PatientDiagnosisController {
 			patientDiagnosisDetails.setDate(patientDiagnosis.getDate());
 			patientDiagnosisDetails.setInvestigation(patientDiagnosis.getInvestigation());
 			patientDiagnosisDetails.setFollowUpdate(patientDiagnosis.getFollowUpdate());
-			
+
 			if (patientDiagnosis.getDiagnosis() != null) {
 				patientDiagnosisDetails.setDiagnosis(patientDiagnosis.getDiagnosis());
 			}
@@ -130,9 +130,9 @@ public class PatientDiagnosisController {
 			if (patientDiagnosisService.update(patientDiagnosisDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(patientDiagnosisDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successful ");
 				log.info("This PatientDiagnosis Id: " + patientDiagnosisDetails.getDiagnosisId()
-						+ " Updated Sucessfully");
+						+ " Updated Successful");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -156,8 +156,8 @@ public class PatientDiagnosisController {
 			patientDiagnosisDetails.setActiveFlag(0);
 			if (patientDiagnosisService.update(patientDiagnosisDetails)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Deleted Sucessfully");
-				log.info("This PatientDiagnosis Id: " + diagnosisId + " Deleted Sucessfully");
+				cmsResponse.setMessage("Deleted Successful");
+				log.info("This PatientDiagnosis Id: " + diagnosisId + " Deleted Successful");
 			} else {
 //				patientDetails.UndoAllCandIntervAndJobsByCompanyId(patientDetails.getPatientId());//already comment
 				cmsResponse.setSuccess(false);
@@ -266,10 +266,10 @@ public class PatientDiagnosisController {
 				patientDiagnosis.setDiagnosisId(id);
 				cmsResponse.setObject(patientDiagnosis);
 				cmsResponse.setSuccess(true);
-				log.info("Saved Sucessfully & Saved Diagnosis Id is: " + id);
+				log.info("Saved Successfully & Saved Diagnosis Id is: " + id);
 			} else {
 				cmsResponse.setSuccess(false);
-				log.info("Saved UnSucessfully");
+				log.info("Saved UnSuccessfully");
 			}
 		}
 		return cmsResponse;

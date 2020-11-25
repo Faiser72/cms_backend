@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.vetologic.cms.dto.appointment.AppointmentDto;
 import com.vetologic.cms.dto.response.CmsResponse;
 import com.vetologic.cms.dto.testreports.TestReportsDto;
 import com.vetologic.cms.model.service.testreports.TestReportsService;
@@ -156,11 +155,11 @@ public class TestReportsController {
 			testReports.setTestReportsId(id);
 			cmsResponse.setObject(testReports);
 			cmsResponse.setSuccess(true);
-			cmsResponse.setMessage("Saved Sucessfully");
-			log.info("Saved Sucessfully & Saved Test Reports Id is: " + id);
+			cmsResponse.setMessage("Saved Successfully");
+			log.info("Saved Successfully & Saved Test Reports Id is: " + id);
 		} else {
 			cmsResponse.setSuccess(false);
-			cmsResponse.setMessage("Saved UnSucessfully");
+			cmsResponse.setMessage("Saved UnSuccessfully");
 			log.info("Saved UnSucessfully");
 		}
 		return cmsResponse;
@@ -195,8 +194,8 @@ public class TestReportsController {
 			if (testReportsService.update(testReportsDetails)) {
 				cmsResponse.setSuccess(true);
 				cmsResponse.setObject(testReportsDetails);
-				cmsResponse.setMessage("Updated Sucessfully");
-				log.info("This Test Reports Id: " + testReportsDetails.getDiagnosisId() + " Updated Sucessfully");
+				cmsResponse.setMessage("Updated Successfully");
+				log.info("This Test Reports Id: " + testReportsDetails.getDiagnosisId() + " Updated Successfully");
 			} else {
 				cmsResponse.setSuccess(false);
 				cmsResponse.setMessage("Fails to Update");
@@ -219,8 +218,8 @@ public class TestReportsController {
 			testReportsDetails.setActiveFlag(0);
 			if (testReportsService.update(testReportsDetails)) {
 				cmsResponse.setSuccess(true);
-				cmsResponse.setMessage("Deleted Sucessfully");
-				log.info("This TestReports Id: " + testReportsId + " Deleted Sucessfully");
+				cmsResponse.setMessage("Deleted Successfully");
+				log.info("This TestReports Id: " + testReportsId + " Deleted Successfully");
 			} else {
 //				patientDetails.UndoAllCandIntervAndJobsByCompanyId(patientDetails.getPatientId());//already comment
 				cmsResponse.setSuccess(false);
